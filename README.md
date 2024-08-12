@@ -18,7 +18,7 @@ Os exercícios:
 
 1. Modele e implemente um método recursivo que calcule o somatório dos números inteiros entre os números k e j, passados como parâmetro.
 
-1. Modele e implemente um método recursivo que recebe um String em retorna true se este String for um palíndrome, false caso contrário.
+1. Modele e implemente um método recursivo que recebe um String e retorna true se este String for um palíndrome, false caso contrário.
     ``` 
          boolean isPal(String s) 
     ```
