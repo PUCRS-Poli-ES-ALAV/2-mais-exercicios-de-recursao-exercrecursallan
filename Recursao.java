@@ -58,17 +58,12 @@ public class Recursao {
     public static boolean isPal(String s) {
         int l = s.length();
     
-        if (l == 1 | l == 0)
+        if (l == 0 || l == 1) 
             return true;
-
-        int i = 0;
-        Character a = s.charAt(l-1);
-        Character b = s.charAt(i);
-
-        if (!a.equals(b))
+        if (s.charAt(0) != s.charAt(l - 1)) 
             return false;
-
-        return isPal(s.substring(i+1, l-1));
+    
+        return isPal(s.substring(1, l - 1));
     }
 
     /*
@@ -86,17 +81,56 @@ public class Recursao {
      * O primeiro item da lista é somado, cada nova iteracao é considerada uma lista com todos exceto o primeiro item.
      */
     public static int soma3(List<Integer> a) {
-        int i = 0;
-        int l = a.size()-1;
+        if (a.size() == 1) 
+            return a.get(0);
 
-        if (i == l)
-            return a.get(l);
-
-        return a.get(i) + soma3(a.subList(i+1, l));
+        return a.get(0) + soma3(a.subList(1, a.size()));
     }
+
+
 
     // public static int findBiggest(List<Integer> a)  {
 
     // }
+
+
+    
+    /*
+     * Verifica se str contém match. String vazia esta contida em qualquer outra.
+     */
+    public static boolean findSubStr(String str, String match) {
+        if (str.length() < match.length()) 
+            return false;
+        if (match.equals("")) 
+            return true;
+        if (str.startsWith(match))
+            return true;
+
+        return findSubStr(str.substring(1), match);
+    }
+
+    /*
+     * menores que 10^1: 1
+     * entre 10^1 e 10^2: 2
+     * entre 10^2 e 10^3: 3
+     * entre 10^(n-1) e 10^n: n
+     * A missao fica em encontrar a potencia de 10 mais proxima (por cima) q o numero em questao, para encontrar n.
+     * para 10^n, dividir por 10 n vezes reduz o numero a um outro de apenas 1 algarismo
+     */
+    public static int nroDigit(int n){
+        n = Math.abs(n);  
+
+        if (n < 10) 
+            return 1;
+    
+        return 1 + nroDigit(n/10);
+    }
+
+
+
+    public static ArrayList<String> permutations(String s) {
+
+    }
+
     
 }
