@@ -88,13 +88,29 @@ public class Recursao {
     }
 
 
+    /*
+     * Parecido com um quicksort. Compara cada metade e vai pegando o maior entre elas.
+     */
+    public static int findBiggest(List<Integer> a) {
+        return findBiggest(a, 0, a.size() - 1);
+    }
 
-    // public static int findBiggest(List<Integer> a)  {
+    private static int findBiggest(List<Integer> a, int start, int end) {
+        if (start == end) 
+            return a.get(start);
+        
+        int mid = (start + end) / 2;
 
-    // }
+        int leftMax = findBiggest(a, start, mid);
+        int rightMax = findBiggest(a, mid + 1, end);
 
-
+        if (leftMax > rightMax) 
+            return leftMax;
+       
+        return rightMax;
+    }
     
+
     /*
      * Verifica se str contém match. String vazia esta contida em qualquer outra.
      */
@@ -128,9 +144,9 @@ public class Recursao {
 
 
 
-    public static ArrayList<String> permutations(String s) {
-
-    }
+    // public static ArrayList<String> permutations(String s) {
+        
+    // }
 
     
 }
